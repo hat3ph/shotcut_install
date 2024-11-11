@@ -24,10 +24,14 @@ else
 			tar -xvf /tmp/shotcut-*.txz -C $HOME
 
 			# symlink shotcut
-			mkdir -p $HOME/.local/bin
-			mkdir -p $HOME/.local/share/applications
-			ln -s $HOME/Shotcut/Shotcut.app/shotcut $HOME/.local/bin/shotcut
-			ln -s $HOME/Shotcut/Shotcut.app/share/applications/org.shotcut.Shotcut.desktop $HOME/.local/share/applications/Shotcut.desktop
+   			if [ -f "$HOME/.local/bin/shotcut" ]; then
+      				mkdir -p $HOME/.local/bin
+				ln -s $HOME/Shotcut/Shotcut.app/shotcut $HOME/.local/bin/shotcut
+   			fi
+      			if [ -f "$HOME/.local/share/applications/Shotcut.desktop" ]; then
+	 			mkdir -p $HOME/.local/share/applications
+				ln -s $HOME/Shotcut/Shotcut.app/share/applications/org.shotcut.Shotcut.desktop $HOME/.local/share/applications/Shotcut.desktop
+    			fi
         elif [[ $arg == "uninstall" ]]; then
             # remove shotcut
 			echo "Uninstalling shotcut..."
