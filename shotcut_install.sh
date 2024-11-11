@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set shotcut verion
-shotcut_ver=24.09.13
+shotcut_ver=24.10.29
 
 if [ $# -eq 0 ]; then
     echo "No arguments provided."
